@@ -56,7 +56,7 @@ const Home = () => {
             </Box>
           </Box>
           <Box className="navbar-menu">
-            <Link href="/application">
+            <Link href="/users/application">
               <Button className="common-btn" variant='contained' style={{marginRight: '10px'}}>
                 Admission
               </Button>
@@ -77,7 +77,7 @@ const Home = () => {
           <Box className="section-text">
             Unlock the Door to Knowledge: Click Below to Begin Your Admission Journey
           </Box>
-          <Link href="/application">
+          <Link href="/users/application">
             <Button className="common-btn" variant='contained'>
               Admission
             </Button>
@@ -106,7 +106,6 @@ const Home = () => {
           </CardActionArea>
         </Card>
       ))}
-          {/* More Cards */}
         </Box>
 
         {/* Google Maps */}
