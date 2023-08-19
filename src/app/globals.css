@@ -16,7 +16,7 @@ body {
 }
 
 .content-wrapper {
-  background: rgb(255,255,255);
+  background: rgb(230 255 238)
 }
 
 /* //##############################  Welcome ##################################? */
@@ -150,20 +150,45 @@ body {
   color: #666;
 }
 
+
+
+
+/* ################################ Application ############################# */
+.css-j204z7-MuiFormControlLabel-root {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 5px !important;
+}
+/* ################################ Payment ############################# */
+
+/* styles.css */
+.payment-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px; 
+  text-align: center;
+}
+
+/* ################################ Media Query ############################# */
+
+/* Media query for responsiveness */
 @media (max-width: 600px) {
   .footer {
     padding: 1rem 0;
   }
 }
-
-
-/* ################################ Media Query ############################# */
-
-/* Media query for responsiveness */
 @media only screen and (max-width: 450px) {
   .common-btn {
 
     font-size: 10px;
   }
+}
+@media only screen and (min-width: 270px) and (max-width: 350px) {
+  .css-1hv8oq8-MuiStepLabel-label {
+    font-size: 8px !important;
+    font-weight: bold;
+}
 }
 
