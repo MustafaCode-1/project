@@ -1,15 +1,27 @@
 'use client'
 import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
 import { Box, Button, Container, Typography } from '@mui/material';
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import { CardActionArea } from '@mui/material';
 import { TypeAnimation } from 'react-type-animation';
+import { useRouter } from 'next/navigation';
+import LoginModal from '../components/modal';
+
 
 const Home = () => {
+
+  const [openModal, setOpenModal] = React.useState(false);
+
+  const handleOpenModal = () => {
+    setOpenModal(true);
+  };
+
+  const handleCloseModal = () => {
+    setOpenModal(false);
+  };
   const imageItems = [
     {
       imagePath: '/images/card1.jpg',
@@ -32,20 +44,36 @@ const Home = () => {
       description: 'Achieve your academic goals and excel in your studies with our tailored learning experiences.',
     },
   ];
+  const router = useRouter();
   return (
     <>
+      <Button
+        variant='contained'
+        style={{
+          position: 'fixed',
+          top: '50%',
+          right: '-27px',
+          transform: 'translateY(-50%) rotate(90deg)',
+          zIndex: 2,
+        }}
+        className="common-btn"
+        onClick={handleOpenModal}
+      >
+        Admin
+      </Button>
+      <LoginModal open={openModal} onClose={handleCloseModal} />
       <Box className="content-wrapper">
-        <Box className="content-info">  
-<TypeAnimation
-  sequence={[
-    'Welcome to Maktab E Noori Page',
-    1000,
-  ]}
-  wrapper="span"
-  speed={50}
-  style={{ fontSize: '1em', display: 'inline-block' }}
-  repeat={Infinity}
-/>
+        <Box className="content-info">
+          <TypeAnimation
+            sequence={[
+              'Welcome to Maktab E Noori Page',
+              1000,
+            ]}
+            wrapper="span"
+            speed={50}
+            style={{ fontSize: '1em', display: 'inline-block' }}
+            repeat={Infinity}
+          />
 
         </Box>
         <nav className="navbar">
@@ -56,18 +84,21 @@ const Home = () => {
             </Box>
           </Box>
           <Box className="navbar-menu">
-            <Link href="/users/application">
-              <Button className="common-btn" variant='contained' style={{marginRight: '10px'}}>
-                Admission
-              </Button>
-            </Link>
+            <Button
+              variant='contained'
+              style={{ marginRight: '10px' }}
+              className="common-btn"
+              onClick={() => router.push('/users/application')}
+            >
+              Admission
+            </Button>
           </Box>
         </nav>
         <section className="home-section">
-        <TypeAnimation
+          <TypeAnimation
             sequence={[
               'Discovering the Treasures of Islam!',
-              1000, 
+              1000,
             ]}
             wrapper="span"
             speed={50}
@@ -77,35 +108,35 @@ const Home = () => {
           <Box className="section-text">
             Unlock the Door to Knowledge: Click Below to Begin Your Admission Journey
           </Box>
-          <Link href="/users/application">
-            <Button className="common-btn" variant='contained'>
+   
+            <Button variant='outlined' sx={{ color: 'white', borderColor: "white" }} onClick={() => router.push('/users/application')}>
               Admission
             </Button>
-          </Link>
+ 
         </section>
 
         <Box className="box-container">
           {/* Cards */}
           {imageItems.map((item, index) => (
-        <Card key={index} sx={{ maxWidth: 300 }}>
-          <CardActionArea>
-            <CardMedia
-              component="img"
-              height="240"
-              image={item.imagePath}
-              alt={item.title}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {item.title}
-              </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {item.description}
-              </Typography>
-            </CardContent>
-          </CardActionArea>
-        </Card>
-      ))}
+            <Card key={index} sx={{ maxWidth: 300 }}>
+              <CardActionArea>
+                <CardMedia
+                  component="img"
+                  height="240"
+                  image={item.imagePath}
+                  alt={item.title}
+                />
+                <CardContent>
+                  <Typography gutterBottom variant="h5" component="div">
+                    {item.title}
+                  </Typography>
+                  <Typography variant="body2" color="text.secondary">
+                    {item.description}
+                  </Typography>
+                </CardContent>
+              </CardActionArea>
+            </Card>
+          ))}
         </Box>
 
         {/* Google Maps */}

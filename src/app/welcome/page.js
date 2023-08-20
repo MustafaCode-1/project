@@ -1,10 +1,11 @@
 'use client'
 import { Button } from '@mui/material';
 import Image from 'next/image';
-import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import React from 'react';
 
 const Welcome = () => {
+    const router = useRouter();
     return (
         <div className="welcome-container">
             <div className="welcome-content">
@@ -16,11 +17,9 @@ const Welcome = () => {
                     height={200}
                 />
 
-                <Link href="/users/home">
-                    <Button className='common-btn' variant='contained'>
+                    <Button className='common-btn' variant='contained' onClick={() => router.push('/users/home')}>
                         Go to Website
                     </Button>
-                </Link>
             </div>
         </div>
     );
