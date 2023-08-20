@@ -7,23 +7,21 @@ import StepLabel from '@mui/material/StepLabel';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import {
-  Conditions,
-  Form,
-  PaymentPage,
-} from '../applicationComps/page';
-import {
   Card,
   Checkbox,
   FormControlLabel,
   FormGroup,
 } from '@mui/material';
+import { Conditions } from '../components/conditions';
+import { Form } from '../components/formPage';
+import { PaymentPage } from '../components/paymentPage';
 
 const steps = ['Conditions', 'Form', 'Payment'];
 
 const Application = () => {
   const [activeStep, setActiveStep] = React.useState(0);
   const [skipped, setSkipped] = React.useState(new Set());
-  const [termsChecked, setTermsChecked] = React.useState(false); 
+  const [termsChecked, setTermsChecked] = React.useState(false);
   const [showNextButton, setShowNextButton] = React.useState(false);
 
   const handleNext = () => {
@@ -48,10 +46,10 @@ const Application = () => {
     setShowNextButton(show);
   };
 
-  const components = [<Conditions />, <Form handleShowNextButton={handleShowNextButton}/>, <PaymentPage />];
+  const components = [<Conditions />, <Form handleShowNextButton={handleShowNextButton} />, <PaymentPage />];
 
   return (
-    <Card sx={{ margin: '10px', padding: '10px'}}>
+    <Card sx={{ margin: '10px', padding: '10px' }}>
       <Box sx={{ width: '100%' }}>
         {console.log('activeStep==', activeStep)}
         <Stepper activeStep={activeStep}>
@@ -68,11 +66,11 @@ const Application = () => {
           })}
         </Stepper>
         {/* Render the active component based on activeStep */}
-        <Card sx={{ margin: '10px', padding: '10px'}}>
+        <Card sx={{ margin: '10px', padding: '10px' }}>
 
-        {components[activeStep]}
+          {components[activeStep]}
         </Card>
-       {activeStep === 0 ? ( <FormGroup style={{display: 'flex', justifyContent: 'center'}}>
+        {activeStep === 0 ? (<FormGroup style={{ display: 'flex', justifyContent: 'center' }}>
           <FormControlLabel
             control={
               <Checkbox
@@ -101,7 +99,7 @@ const Application = () => {
           </React.Fragment>
         ) : (
           <React.Fragment>
-    
+
             <Box
               sx={{
                 display: 'flex',
@@ -120,10 +118,10 @@ const Application = () => {
               </Button>
               <Box sx={{ flex: '1 1 auto' }} />
               {(activeStep === 0 && termsChecked) || (activeStep === 1 && showNextButton) ? (
-    <Button onClick={handleNext} variant="contained">
-      {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
-    </Button>
-  ) : null}
+                <Button onClick={handleNext} variant="contained">
+                  {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                </Button>
+              ) : null}
             </Box>
           </React.Fragment>
         )}
