@@ -64,7 +64,9 @@ const layout = (props) => {
                     </Box>
                 </Card>
             </Modal>
+            <Box sx={{background: 'linear-gradient(90deg, #e3ffe7 0%, #d9e7ff 100%)', height: 'auto', padding: '20px 0px'}}>
             {props.children}
+            </Box>
         </>
     )
 }
