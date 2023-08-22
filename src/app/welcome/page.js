@@ -16,10 +16,9 @@ const Welcome = () => {
                     width={200}
                     height={200}
                 />
-
-                    <Button className='common-btn' variant='contained' onClick={() => router.push('/users/home')}>
-                        Go to Website
-                    </Button>
+                <Button className='common-btn' variant='contained' onClick={() => router.push('/users/home')}>
+                    Go to Website
+                </Button>
             </div>
         </div>
     );

@@ -2,7 +2,7 @@
 import * as React from 'react';
 import { Typography, Avatar, Button, TextField, Box, Container, Alert, Snackbar } from "@mui/material";
 import LockOutlinedIcon from '@mui/icons-material/LockOutlined';
-import axios from 'axios'
+import { addRequestData } from '@/app/utils/apiCalling';
 
 export const Form = ({ handleShowNextButton }) => {
     const [isFormValid, setIsFormValid] = React.useState(false);
@@ -52,7 +52,8 @@ export const Form = ({ handleShowNextButton }) => {
                 handleShowNextButton(true);
                 setIsLoading(false)
                 setMessage(true);
-                const result = await axios.post('/api/users/students', payload);
+                // const result = await axios.post('/api/users/students', payload);
+                await addRequestData(payload)
 
             } catch (error) {
                 // Handle error here

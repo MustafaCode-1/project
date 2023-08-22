@@ -179,6 +179,86 @@ body {
   padding: 16px;
   text-align: center;
 }
+/* ################################ admin ############################# */
+
+/* styles.css */
+.admin-cards {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: bold;
+}
+
+.admin-card-titile {
+  padding: 50px 0px; 
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%); 
+  color: white;
+  font-weight: bold; 
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+/* ################################ req card ############################# */
+
+/* Styling for the Accordion */
+.custom-accordion {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin-bottom: 16px;
+}
+
+/* Styling for the AccordionSummary */
+.custom-summary {
+  border-radius: 8px 8px 0 0;
+  background: linear-gradient(90deg, #4b6cb7 0%, #182848 100%);
+  color: white;
+}
+
+/* Styling for the heading inside AccordionSummary */
+.custom-heading {
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+/* Styling for the AccordionDetails */
+.custom-details {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #ffffff;
+  border-radius: 0 0 8px 8px;
+}
+
+/* Styling for the text inside AccordionDetails */
+.custom-text {
+  margin-bottom: 8px;
+  font-size: 1rem;
+}
+
+/* Styling for the buttons */
+.custom-buttons {
+  display: flex;
+  gap: 16px;
+  margin-top: 16px;
+}
+
+/* Styling for the approve button */
+.custom-button.approve {
+  background-color: #4caf50;
+  color: #fff;
+}
+
+/* Styling for the delete button */
+.custom-button.delete {
+  background-color: #f44336;
+  color: #fff;
+}
+.req-card-title {
+  font-weight: 600;
+  color: black;
+}
 
 /* ################################ Media Query ############################# */
 
